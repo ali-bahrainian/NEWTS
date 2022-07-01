@@ -6,6 +6,7 @@ This repository presents the NEWTS dataset created during a research project on 
 ### Citation
 We introduced NEWTS at ACL 2022. The citation for the dataset is:
 
+```
 @inproceedings{bahrainian-etal-2022-newts,
     title = "{NEWTS}: A Corpus for News Topic-Focused Summarization",
     author = "Bahrainian, Seyed Ali  and
@@ -20,6 +21,7 @@ We introduced NEWTS at ACL 2022. The citation for the dataset is:
     doi = "10.18653/v1/2022.findings-acl.42",
     pages = "493--503"
 }
+```
 
 ### Reading the dataset:
 The dataset can be read using the following sample code:
