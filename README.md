@@ -77,3 +77,6 @@ The model can be read using the following code:
             outputs.append(string)
         return outputs, outputs_allTopics
 ```
+
+### License:
+The NEWTS dataset and other content of this repository are shared under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license. 
