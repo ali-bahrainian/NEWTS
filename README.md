@@ -50,13 +50,13 @@ The model that we used in this project, both for computing the distribution of t
 The model can be read using the following code:
 
 ```
-   def readLDA (self, modelAddress):
+   def readLDA (modelAddress):
         lda = gensim.models.ldamodel.LdaModel.load(modelAddress+'lda250.model', mmap = 'r')
         print "Loaded the LDA model"
         dictionary = corpora.Dictionary.load(modelAddress+'dictionary250.model', mmap = 'r')
         print "Loaded dictionary"
         return lda, dictionary
-    def returnTopicLabels(self, lda, dictionary, inputDocs):
+    def returnTopicLabels(lda, dictionary, inputDocs):
         outputs = []
         outputs_allTopics = []
         lda.minimum_phi_value = 0.01
