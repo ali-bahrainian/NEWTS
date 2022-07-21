@@ -1,4 +1,4 @@
-# NEWTS
+# NEWTS 🦎
 ### NEWs Topic-based Summarization Dataset
 
 This repository presents the NEWTS dataset created during a research project on Topic-focused Abstractive Summarization. The dataset, which is based on the CNN/Dailymail dataset, features two human-written summaries per news article each focusing on a different topic. The dataset also contains four prompt types paired with each news article, namely, topic words, topic phrases, topic sentences and topic IDs. 
