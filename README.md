@@ -26,7 +26,7 @@ We introduced NEWTS at ACL 2022. The citation for the dataset is:
 ### Reading the dataset
 The dataset can be read using the following sample code:
 
-```
+```python
 >>> newts_test = pd.read_csv('NEWTS_test_600.csv', encoding='utf-8', index_col=[0])
 >>> newts_train = pd.read_csv('NEWTS_train_2400.csv', encoding='utf-8', index_col=[0])
 
@@ -50,32 +50,32 @@ The model that we used in this project, both for computing the distribution of t
 The model can be read using the following code:
 
 ```python
-   def readLDA (modelAddress):
-        lda = gensim.models.ldamodel.LdaModel.load(modelAddress+'lda250.model', mmap = 'r')
-        print "Loaded the LDA model"
-        dictionary = gensim.corpora.Dictionary.load(modelAddress+'dictionary250.model', mmap = 'r')
-        print "Loaded dictionary"
-        return lda, dictionary
-    def returnTopicLabels(lda, dictionary, inputDocs):
-        outputs = []
-        outputs_allTopics = []
-        lda.minimum_phi_value = 0.01
-        lda.per_word_topics = False
-        for doc in inputDocs:
-            vec_bow = dictionary.doc2bow(doc.split(' '))
-            temp = lda[vec_bow]
-            temp.sort(key=lambda x:x[1], reverse = True)
-            topicsString = ''
-            for item in temp:
-                topicsString+= '\t'+str(item[0])+' '+str(item[1])
-            outputs_allTopics.append(topicsString)
-            try:
-                string = str(temp[0][0])
-            except:
-                string = 'nan'
-                print('No topics exist for this document')
-            outputs.append(string)
-        return outputs, outputs_allTopics
+def readLDA (modelAddress):
+    lda = gensim.models.ldamodel.LdaModel.load(modelAddress+'lda250.model', mmap = 'r')
+    print "Loaded the LDA model"
+    dictionary = gensim.corpora.Dictionary.load(modelAddress+'dictionary250.model', mmap = 'r')
+    print "Loaded dictionary"
+    return lda, dictionary
+def returnTopicLabels(lda, dictionary, inputDocs):
+    outputs = []
+    outputs_allTopics = []
+    lda.minimum_phi_value = 0.01
+    lda.per_word_topics = False
+    for doc in inputDocs:
+        vec_bow = dictionary.doc2bow(doc.split(' '))
+        temp = lda[vec_bow]
+        temp.sort(key=lambda x:x[1], reverse = True)
+        topicsString = ''
+        for item in temp:
+            topicsString+= '\t'+str(item[0])+' '+str(item[1])
+        outputs_allTopics.append(topicsString)
+        try:
+            string = str(temp[0][0])
+        except:
+            string = 'nan'
+            print('No topics exist for this document')
+        outputs.append(string)
+    return outputs, outputs_allTopics
 ```
 
 ### Topic Score Helpers
